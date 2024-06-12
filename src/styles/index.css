@@ -10,3 +10,6 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+h1{
+    font-size: 6.25rem;
+}
