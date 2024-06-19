@@ -30,20 +30,21 @@ export const Todolist = () => {
       const handleMouseLeave = () => {
         setShowButton(false);
       };
-    
-
     return (
         <div className="container">
             <div className="mb-2">
-                <label className="fs-4">Your tasks here: <input type="text" placeholder="what needs to be done" value={inputValue} onChange={inputChange} onKeyDown={keyDown} /> </label>
+                <label className="fs-4 text-white">Your tasks here: <input type="text" placeholder="what needs to be done" value={inputValue} onChange={inputChange} onKeyDown={keyDown} /> </label>
             </div>
-                <ul className="d-flex flex-column bg-dark" > 
+            {taskList.length > 0 ? (
+                <ul className="d-flex flex-column bg-dark ps-0" > 
                     {taskList.map((item, index) => (
-					<li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='fs-2 ms-3 p-2 bg-dark text-white rounded border border-danger d-flex justify-content-center' key={index}>{item}    <div className="d-flex ms-auto"> {showButton && <button type="button" onClick={() => deleteTask(index)} className="btn btn-dark"><FontAwesomeIcon icon={faCircleXmark} /></button>}</div></li>
+					          <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="fs-2 ms-3 p-2 text-white rounded border border-danger d-flex justify-content-center" key={index}>{item}    <div className="d-flex ms-auto"> {showButton && <button type="button" onClick={() => deleteTask(index)} className="btn btn-dark"><FontAwesomeIcon icon={faCircleXmark} /></button>}</div></li>
                     ))}
                     <li className="fs-5 d-flex ms-3 me-auto bg-dark text-white">{taskList.length} items left</li>
                 </ul>
-                
+            ) : (
+              <p className="fs-2 ms-3 p-2 text-white d-flex justify-content-center">NOT PENDING TASKS</p>
+            )}     
         </div>
     );
 }

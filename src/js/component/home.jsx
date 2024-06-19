@@ -4,7 +4,7 @@ import { Todolist } from "../Todolist.jsx";
 const Home = () => {
 	return (
 		<div className="text-center">
-			<h1>TODOS</h1>
+			<h1 className="text-white">TODOS</h1>
 			<Todolist />
 		</div>
 	);
