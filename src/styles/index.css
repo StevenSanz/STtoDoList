@@ -36,3 +36,16 @@ body {
     background-size: var(--s) calc(var(--s) * 0.577);
   }
   
+  .bounce {
+    animation: bounce-animation 1s infinite;
+    font-size: 2rem; 
+}
+
+@keyframes bounce-animation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); 
+    }
+}
