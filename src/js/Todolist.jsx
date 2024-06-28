@@ -15,12 +15,13 @@ export const Todolist = () => {
 
       const keyDown = (e) => {
         if (e.key === 'Enter' && inputValue.trim() !== '') {
-            setTasklist([...taskList, inputValue]);
+            setTasklist(prevState => [...prevState, inputValue]);
             setInputValue('');
+             
         }
       };
       const deleteTask = (index) => {
-        setTasklist(taskList.filter((_, i) => i !== index));
+        setTasklist((prevState) => prevState.filter((_, i) => i !== index));
       };
 
       const handleMouseEnter = (index) => {
